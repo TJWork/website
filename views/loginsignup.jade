@@ -1,0 +1,16 @@
+extends std-page-layout
+block styles
+	link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
+	link(rel="stylesheet",href="style.css")
+block pagecontent
+	.container-fluid
+		form(class="form-signin", method="post")
+			h2 Please sign in
+				+input("email", "inputEmail", "Email address", "E-mail", "emailbar")
+				+input("password", "inputPassword", "Password", "Password", "passbar")
+				+submit("Sign In", onclick="submitForm()")
+				+submit("Sign Up")
+	script.
+		function submitForm(){
+			console.log("getting somewhere");
+		}

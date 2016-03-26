@@ -1,0 +1,15 @@
+.advancedsearch
+	.container-fluid
+		.jumbotron
+			.row
+				span
+					input(type="search", placeholder="Search", name="searchbar")
+			.row
+				span
+					label(type="inline radio")
+						input(type="radio", name='filter' label='by text', checked) 
+						= "by text"
+						input(type="radio", name='filter' label='by text') 
+						= "by xQuery"
+						input(type="radio", name='filter' label='by text') 
+						= "by xPath"

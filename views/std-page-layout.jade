@@ -1,0 +1,15 @@
+extends ../node_modules/jade-bootstrap/_bootstrap
+block styles
+	link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
+block body
+	include navibar
+	include advancedsearch
+	.container-fluid
+		.row
+			.col-sm-8
+				block pagecontent
+			.col-sm-4
+				include sidebar
+	footer.footer
+		.container
+			p.text-muted X documents available for your scandilous behaviour
