@@ -20,8 +20,31 @@ router.post('/', function(req, res) {
     var password = req.body.passbar;
 
     // Check if username already exists, and password is valid
+
     var client = new basex.Session("127.0.0.1", 1984, "admin", "admin");
-    rememberuser(username, res);
+    client.execute("OPEN data");
+    var query = "XQUERY (\'" + password + "\'=string(//users/user[@name=\'" + username + "\']))";
+    client.execute(query,
+		function(err,result) { 
+			if(!err){
+				
+				if (result.result == 'true'){
+					console.log("result: " + result.result);
+					rememberuser(username, res);
+					res.redirect(307, '/');
+				}else{
+					console.log("result: " + result.result);
+					res.render('loginsignup', { title: 'NZ Chronicles'});
+				}
+				
+			} 
+			else console.log("failed " + err);
+		});
+	//client.execute("LIST data", function(err,res) { if(!err) console.log(res.result)} )
+
+    
+
+    
     // if true, return to 
     // ...
 });
@@ -32,9 +55,8 @@ function rememberuser(username, res){
     var date = new Date();
     var cookieTTL = 600000;
     date.setTime(date.getTime() + cookieTTL);
-    res.cookie("user", username, {expires: new Date(Date.now() + 900000)}).redirect(307, '/');
+    res.cookie("user", username, {expires: date});
 }
-
 
 function listifyResult(err, reply){
 	list = reply.result.split("\r\n");

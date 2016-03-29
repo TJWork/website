@@ -9,8 +9,4 @@ block pagecontent
 				+input("email", "inputEmail", "Email address", "E-mail", "emailbar")
 				+input("password", "inputPassword", "Password", "Password", "passbar")
 				+submit("Sign In", onclick="submitForm()")
-				+submit("Sign Up")
-	script.
-		function submitForm(){
-			console.log("getting somewhere");
-		}
+				+a-btn-primary("/signup") Sign Up

@@ -5,4 +5,8 @@
 			+nav_item("/Browse") Browse
 			+nav_item("/Upload") Upload
 			+nav_item("/Search") Advanced Search
-			+nav_item("/loginsignup") Login/Sign Up
+			if username
+				+nav_item("/signout") Sign out
+			else
+				+nav_item("/loginsignup") Login/Sign Up
+

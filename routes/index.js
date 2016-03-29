@@ -10,13 +10,13 @@ var resource;
 router.get("/",function(req,res,next){
 	var user = req.cookies.user;
 	console.log('user: ' + user);
-	res.render('index', { title: user});
+	res.render('index', { title: 'NZ Chronicles', username: user });
 });
 
 router.post('/', function(req, res) {
-    var user = req.cookie;
+    var user = req.cookies.user;
 	console.log('user: ' + user);
-    res.render('index', { title: 'NZ Chronicles'});
+    res.render('index', { title: 'NZ Chronicles', username: user});
     // ...
 });
 

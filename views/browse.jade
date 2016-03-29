@@ -1,4 +1,17 @@
 extends std-page-layout
 block pagecontent
-	h1 Browsing Documents...
-	p Welcome to The Project. We have an excellent collection of videos in stock for you.
+	h1 Browse
+	include advancedsearch
+	.container
+		.btn-group
+			button.btn(class="btn-primary btn-sm", type="submit", onclick="filterclick")= "All"
+			button.btn(class="btn-default btn-sm", type="submit", onclick="filterclick")= "Private Letters"
+			button.btn(class="btn-default btn-sm", type="submit", onclick="filterclick")= "Diaries"
+			button.btn(class="btn-default btn-sm", type="submit", onclick="filterclick")= "Newspaper Letters"
+	.container
+		p Showing #{titles.length} results.
+	+listGroup("links")
+		each obj in titles
+			+listItem("users.xml")
+				+listHeading= obj.title
+				+listText= "Author: " + obj.author

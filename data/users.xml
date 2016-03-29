@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <users>
-	<user name=" researcherrachel@gmail.com">rach </user>
+	<user name="rr@gmail.com" type="user">rach </user>
+	<user name="cc@gmail.com" type="user">cccc </user>
 </users>
